@@ -13,6 +13,15 @@ class AddComment extends Component {
     },
   }
 
+  componentDidUpdate = (prevProps) => {
+    if(prevProps.asin !== this.props.asin){
+      this.setState({
+        comment: {
+          ...this.state.comment,
+
+          elementId: this.props.asin,}})
+  }}
+
   sendComment = async (e) => {
     e.preventDefault()
     try {
@@ -36,6 +45,7 @@ class AddComment extends Component {
             elementId: this.props.asin,
           },
         })
+        this.props.changed()
       } else {
         throw new Error('Qualcosa è andato storto')
       }

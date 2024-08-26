@@ -27,7 +27,7 @@ const SingleComment = ({ comment }) => {
 
   return (
     <ListGroup.Item>
-      {comment.comment}
+      <small className='text-muted'>{comment.rate}⭐</small> // {comment.comment} 
       <Button
         variant="danger"
         className="ms-2"
