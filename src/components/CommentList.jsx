@@ -1,18 +1,15 @@
 import { ListGroup } from 'react-bootstrap'
 import SingleComment from './SingleComment'
-import { Component } from 'react'
 
-class CommentList extends Component{
+function CommentList({changed, commentsToShow}){
 
-  render(){
     return(
        <ListGroup style={{ color: 'black' }} className="mt-2">
-    {this.props.commentsToShow.map((comment) => (
-      <SingleComment comment={comment} key={comment._id} />
+    {commentsToShow.map((comment) => (
+      <SingleComment comment={comment} key={comment._id} changed={changed} />
     ))}
   </ListGroup>
     )
-  }
  
 }
 
